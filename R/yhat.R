@@ -58,13 +58,15 @@ yhat.glm <- function(X.model, newdata, ...) {
 #' @rdname yhat
 #' @export
 yhat.cv.glmnet <- function(X.model, newdata, ...) {
-  predict(X.model, newdata, type = "response")
+  predict(X.model, newdata, type = "response", s = 'lambda.min')
 }
 
 #' @rdname yhat
 #' @export
 yhat.glmnet <- function(X.model, newdata, ...) {
   predict(X.model, newdata, type = "response")
+  # predict(X.model, newdata)
+  # print(predict(X.model, newdata) %>% head)
 }
 
 #' @rdname yhat
